@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http, Header} from '@angular/http';
+import {Http, Headers} from '@angular/http';
 import {Contact} from './contact';
 import 'rxjs/add/operator/map';
 
@@ -20,8 +20,8 @@ export class ContactService {
   //add contact method
   addContact(newContact)
   {
-    var headers - new Headers();
-    headers.append('Content-Type','application/json');
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/api/contact', newContact,{headers:headers})
       .map(res => res.json());
   }
